@@ -10,7 +10,7 @@ public class App
     public static void main(String[] args) {
         new BasicsDemo().run();
         new BasicsDemo().multiplyMatrices();
-        new Dictionary().TranslateDict();
+        new Dictionary().menuTable();
 
 
 
