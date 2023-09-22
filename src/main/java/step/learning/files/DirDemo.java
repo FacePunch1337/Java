@@ -56,7 +56,6 @@ public class DirDemo {
         }
     }
 
-
     public void dir (String directoryPath) {
         File directory = new File(directoryPath);
 
