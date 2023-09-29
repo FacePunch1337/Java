@@ -77,7 +77,7 @@ public class Armory {
     }
     public void save() {
         String path = URLDecoder.decode(this.getClass().getClassLoader().getResource("./").getPath());
-        System.out.println(path);
+        //System.out.println(path);
         // Відкриваємо файл (див. вправи "файли") і серіалізуємо у нього колекцію
         try (FileWriter writer = new FileWriter(path + "armory.json")) {
             Gson gson = new GsonBuilder()
@@ -115,6 +115,15 @@ public class Armory {
         }
     }
 
+    public void printRifledBarrel() {
+        System.out.println("Rifled barrel:");
+        for (Weapon weapon : weapons) {
+            if (isRifledBarrel(weapon)) {
+                System.out.println(weapon.getCard());
+            }
+        }
+    }
+
     public void printNonAutomatic() {
         System.out.println("Non-Automatic:");
         for (Weapon weapon : weapons) {
@@ -124,9 +133,9 @@ public class Armory {
         }
     }
 
-    public boolean isAutomatic(Weapon weapon) {
-        return weapon instanceof Automatic;
-    }
+
+
+
 
     public void printClassified() {
 
@@ -148,6 +157,22 @@ public class Armory {
         }
     }
 
+    public void printUsed(){
+        for (Weapon weapon : weapons) {
+            if (isUsed(weapon)) {
+                Used weaponAsUsed = (Used) weapon;
+                System.out.println(weapon.getCard() + " " + "Date: "+ weaponAsUsed.getYears());
+            }
+        }
+    }
+
+    public boolean isRifledBarrel(Weapon weapon){
+        return weapon instanceof RifledBarrel;
+    }
+
+    public boolean isAutomatic(Weapon weapon) {
+        return weapon instanceof Automatic;
+    }
     public boolean isClassified(Weapon weapon) {
         return (weapon instanceof Classified);
     }
@@ -155,6 +180,8 @@ public class Armory {
     public boolean isNonClassified(Weapon weapon) {
         return (weapon instanceof NonClassified);
     }
+
+    public boolean isUsed(Weapon weapon) {return (weapon instanceof Used); }
 
     public void load() throws RuntimeException {
         String resourceName = "armory.json";

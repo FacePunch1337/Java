@@ -99,12 +99,6 @@ public class App
             System.err.printf( "Resource '%s' not found %n", resourceName ) ;
         }*/
 
-
-
-
-
-
-
     }
 
     public static void main(String[] args) {
@@ -113,17 +107,25 @@ public class App
         armory.add(new Gun( "glock", 10));
         armory.add(new MachineGun( "M49 SAW", 8.5f));
         armory.add(new Rifle( "M24", 7.62f));
-        armory.printAll();
+        armory.add(new Shotgun( "Remington 870", 1.6f));
+        armory.add(new SubmachineGun( "MP5", 200f));
         System.out.println("---------AUTOMATIC---------");
         armory.printAutomatic();
+        System.out.println("---------RIFLED---------");
+        armory.printRifledBarrel();
+        System.out.println("---------USED---------");
+        armory.printUsed();
         System.out.println("---------NON AUTOMATIC---------");
         armory.printNonAutomatic();
         System.out.println("---------CLASSIFIED---------");
         armory.printClassified();
         System.out.println("---------NON-CLASSIFIED---------");
         armory.printNonClassified();
-        armory.save();
-        armory.load();
+
+        //armory.save();
+        System.out.println("---------ALL---------");
+
+       // armory.load();
         armory.printAll();
     }
 }

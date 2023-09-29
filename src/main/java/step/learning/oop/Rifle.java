@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import java.util.List;
 
 @Serializable
-public class Rifle extends Weapon implements NonClassified {
+public class Rifle extends Weapon implements NonClassified, RifledBarrel{
 
     private float caliber;
     public Rifle(String name, float caliber) {

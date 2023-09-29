@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 import com.google.gson.*;
 
 @Serializable
-public class Gun extends Weapon implements Classified {
+public class Gun extends Weapon implements Classified, Used{
 
     private int cartridge;
     public Gun(String name, int cartridge) {
@@ -40,6 +40,8 @@ public class Gun extends Weapon implements Classified {
         return String.format("Gun '%s' (cartridge %d)", super.getName(), this.getCartridge());
     }
 
+    @Override
+    public String getYears() { return "9.29.2023"; }
 
     @Override
     public String getLevel() {

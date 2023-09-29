@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import java.util.List;
 
 @Serializable
-public class MachineGun extends Weapon implements Automatic, Classified {
+public class MachineGun extends Weapon implements Automatic, Classified, RifledBarrel {
 
     private float fireRate;
     public MachineGun(String name, float fireRate) {
@@ -41,6 +41,8 @@ public class MachineGun extends Weapon implements Automatic, Classified {
     public String getLevel() {
         return "For military";
     }
+
+
 
     @JsonParseCheck
     public static boolean isJsonParseable(JsonObject jsonObject) {
